@@ -7,15 +7,18 @@ import PrivateRoute from "./PrivateRoute";
 import Main from "./Main";
 
 
-export default function Navigation() {
+const Dashboard = () => {
     return (
-        <Router>
-       <Switch>
+       <Router>
 
-       <PrivateRoute exact path="/main" component={Main} />
+      
+      <Switch>
+       <PrivateRoute path="/main" component={Main} />
             
-        
         </Switch>
+       
         </Router>
     );
 }
+
+export default Dashboard;

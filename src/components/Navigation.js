@@ -10,13 +10,13 @@ export default function Navigation() {
         <Router>
         <div className = "navigation">
         <nav className = "navlinks">
-            <Link to = "/home">Home</Link>
+            <Link to = "/">Home</Link>
             <Link to = "/login">Login</Link>
             <Link to = "/register">Register</Link>
         </nav>
         </div>
-        <Switch>
-
+        
+<Switch>
         <Route path = "/login" component={Login}/>
            
       
@@ -25,7 +25,7 @@ export default function Navigation() {
          
        
 
-        <Route path = "/home">
+        <Route exact path="/">
             <Home/>
         </Route>
         </Switch>
