@@ -14,7 +14,7 @@ const Login = ({values, handleChange, touched, errors, status},{...props}) => {
     }, [status]);
     
     return (
-        <div className = "form">
+        <div className = "login">
             <h2>Login</h2>
            
         <Form>
