@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
-
+import Button from "@material-ui/core/Button";
+import { TextField } from "formik-material-ui";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
@@ -19,37 +20,16 @@ const Register = ({values, handleChange, touched, errors, status}) => {
     return (
         <div className = "register">
             <h2>Register</h2>
-           
         <Form>
-            <label htmlFor = "first_name"> First Name
-            <Field id = "first_name" type = "text" name = "first_name" placeholder = "First Name" />
-            {touched.first_name && errors.first_name && (
-                <p className = "error">{errors.first_name}</p>
-            )}
-            </label>
+            <Field component = {TextField} id = "first_name" type = "text" name = "first_name" placeholder = "First Name" />
             <br/>
-            <label htmlFor = "last_name"> Last Name
-            <Field id = "last_name" type = "text" name = "last_name" placeholder = "Last Name" />
-            {touched.last_name && errors.last_name && (
-                <p className = "error">{errors.last_name}</p>
-            )}
-            </label>
+            <Field component = {TextField} id = "last_name" type = "text" name = "last_name" placeholder = "Last Name" />
             <br/>
-            <label htmlFor = "email"> Email
-            <Field id = "email" type = "email" name = "email" placeholder = "Email" />
-            {touched.email && errors.email && (
-                <p className = "error"> {errors.email}</p>
-            )}
-            </label>
+            <Field component = {TextField} id = "email" type = "email" name = "email" placeholder = "Email" />
             <br/>
-            <label htmlFor = "password"> Password
-            <Field id = "password" type = "password" name = "password" placeholder = "Password" />
-            {touched.password && errors.password && (
-                <p className = "error">{errors.password}</p>
-            )}
-            </label>
+            <Field component = {TextField} id = "password" type = "password" name = "password" placeholder = "Password" />
             <br/>
-            <button type = "submit">Submit</button>
+            <Button type = "submit" variant = "contained" color = "primary">Submit</Button>
             
         </Form>
         </div>
