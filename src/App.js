@@ -13,7 +13,9 @@ function App() {
         <h1>Wunderlist 2.0</h1>
       </header>
     </div>
+    
     <Navigation/>
+     
     </Router>
   );
 }
