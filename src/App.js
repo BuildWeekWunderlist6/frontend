@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import SignUp from "./components/SignUp";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
           Wunderlist 2.0
         </p>
       </header>
+      <SignUp/>
     </div>
   );
 }
