@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
-
+import Button from "@material-ui/core/Button";
+import { TextField } from "formik-material-ui";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
@@ -18,21 +19,11 @@ const Login = ({values, handleChange, touched, errors, status}) => {
             <h2>Login</h2>
            
         <Form>
-            <label htmlFor = "email"> Email
-            <Field id = "email" type = "email" name = "email" placeholder = "Email" />
-            {touched.email && errors.email && (
-                <p className = "error"> {errors.email}</p>
-            )}
-            </label>
+            <Field component = {TextField} id = "email" type = "email" name = "email" placeholder = "Email" />
             <br/>
-            <label htmlFor = "password"> Password
-            <Field id = "password" type = "password" name = "password" placeholder = "Password" />
-            {touched.password && errors.password && (
-                <p className = "error">{errors.password}</p>
-            )}
-            </label>
+            <Field component = {TextField} id = "password" type = "password" name = "password" placeholder = "Password" />
             <br/>
-            <button type = "submit">Submit</button>
+            <Button type = "submit" variant = "contained" color = "primary">Submit</Button>
             
         </Form>
         </div>

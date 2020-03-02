@@ -11,6 +11,22 @@
   text-align: center;
 }
 
+.register, .login {
+  margin-top: 50px;
+}
+
+.register input, .login input {
+  font-size: 20px;
+  width: 250px;
+  margin: 10px;
+}
+
+.register button, .login button {
+  margin-top: 30px;
+  height: 40px;
+  width: 100px;
+}
+
 .navlinks {
   display: flex;
   justify-content: space-evenly;
