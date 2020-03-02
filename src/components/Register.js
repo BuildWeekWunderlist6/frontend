@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
+
 import { browserHistory } from '../'
+
+import Button from "@material-ui/core/Button";
+import { TextField } from "formik-material-ui";
+
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-
 
 
 const Register = ({values, handleChange, touched, errors, status}) => {
