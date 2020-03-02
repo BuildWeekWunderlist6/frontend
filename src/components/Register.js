@@ -52,7 +52,7 @@ const FormikRegister = withFormik({
         password: Yup.string().required("Password is required.").min(8, "Password must be at least 8 characters.")
     }),
     
-    handleSubmit(values, { setStatus, resetForm }) {
+    handleSubmit(values, { setStatus, resetForm, props }) {
         console.log("Submitting", values);
         axiosWithAuth().post("/users/register", values)
             .then(response => {
@@ -61,7 +61,7 @@ const FormikRegister = withFormik({
                 console.log("VALUES", values);
                 console.log("Success", response.data);
                 setStatus(response.data);
-                // history.push('/protected')
+                props.history.push('/login')
                 resetForm();
             })
             .catch(response => {
