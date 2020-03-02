@@ -17,7 +17,7 @@ const Register = ({values, handleChange, touched, errors, status},{...props}) =>
     
     
     return (
-        <div className = "form">
+        <div className = "register">
             <h2>Register</h2>
            
         <Form>

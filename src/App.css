@@ -7,9 +7,13 @@
   pointer-events: none;
 }
 
-.navigation {
+.login, .register, .home {
+  text-align: center;
+}
+
+.navlinks {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 @media (prefers-reduced-motion: no-preference) {
