@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import Register from "./components/Register";
+import PrivateRoute from "./components/PrivateRoute";
 import Navigation from "./components/Navigation";
-import { BrowserRouter as Router } from "react-router-dom";
+import Dashboard from "./components/Dashboard"
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 
 function App() {
   return (
@@ -12,7 +13,10 @@ function App() {
       <header className="App-header">
         <h1>Wunderlist 2.0</h1>
       </header>
-      <Navigation/>
+      <Switch>
+      <Navigation path="/home" component={Navigation}/>
+      <PrivateRoute exact path="/main" component={Dashboard} />
+      </Switch>
     </div>
      
     </Router>

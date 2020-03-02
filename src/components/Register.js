@@ -61,7 +61,7 @@ const FormikRegister = withFormik({
                 console.log("VALUES", values);
                 console.log("Success", response.data);
                 setStatus(response.data);
-                props.history.push('/login')
+                props.history.push('/main')
                 resetForm();
             })
             .catch(response => {

@@ -42,7 +42,7 @@ const FormikLogin = withFormik({
         password: Yup.string().required("Password is required.")
     }),
     
-    handleSubmit(values, { setStatus, resetForm }) {
+    handleSubmit(values, { setStatus, resetForm, props }) {
         console.log("Submitting", values);
         axiosWithAuth().post("/users/login", values)
             .then(response => {
@@ -50,7 +50,7 @@ const FormikLogin = withFormik({
                 console.log("VALUES", values);
                 console.log("Success", response.data);
                 setStatus(response.data);
-               
+                props.history.push('/main')
                 resetForm();
             })
             .catch(response => {
