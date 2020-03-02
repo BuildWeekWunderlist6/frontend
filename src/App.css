@@ -7,7 +7,7 @@
   pointer-events: none;
 }
 
-.login, .register, .home {
+.login, .register, .homepage {
   text-align: center;
 }
 
@@ -40,12 +40,12 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 10vh;
+  height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 20px;
   color: white;
 }
 
