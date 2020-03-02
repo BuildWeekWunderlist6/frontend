@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
-import { useHistory } from 'react-router-dom'
+
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-const history = useHistory();
 
-const SignUp = ({values, handleChange, touched, errors, status}) => {
+
+const SignUp = ({values, handleChange, touched, errors, status},{...props}) => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
         console.log("Status has changed", status);
         status && setUsers(users => [...users, status]);
     }, [status]);
     
-    
+   
     
     
     return (
@@ -80,7 +80,7 @@ const FormikSignUp = withFormik({
                 console.log("VALUES", values);
                 console.log("Success", response.data);
                 setStatus(response.data);
-                history.push('/protected');
+               
                 resetForm();
             })
             .catch(response => {
