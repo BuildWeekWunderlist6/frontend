@@ -6,7 +6,7 @@ import * as Yup from "yup";
 
 
 
-const SignUp = ({values, handleChange, touched, errors, status},{...props}) => {
+const Register = ({values, handleChange, touched, errors, status},{...props}) => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
         console.log("Status has changed", status);
@@ -18,7 +18,7 @@ const SignUp = ({values, handleChange, touched, errors, status},{...props}) => {
     
     return (
         <div className = "form">
-            <h2>Sign Up</h2>
+            <h2>Register</h2>
            
         <Form>
             <label htmlFor = "first_name"> First Name
@@ -56,7 +56,7 @@ const SignUp = ({values, handleChange, touched, errors, status},{...props}) => {
     );
 };
 
-const FormikSignUp = withFormik({
+const FormikRegister = withFormik({
     mapPropsToValues({first_name, last_name, email, password}) {
         return {
             first_name: first_name || "",
@@ -87,6 +87,6 @@ const FormikSignUp = withFormik({
                 console.log("Error posting data", response);
             });
     }
-})(SignUp);
+})(Register);
 
-export default FormikSignUp;
+export default FormikRegister;

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import SignUp from "./components/SignUp";
+import Register from "./components/Register";
 import Navigation from "./components/Navigation";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -10,10 +10,10 @@ function App() {
     <Router>
     <div className="App">
       <header className="App-header">
-        <Navigation/>
+        <h1>Wunderlist 2.0</h1>
       </header>
-      <SignUp path="/signup"/>
     </div>
+    <Navigation/>
     </Router>
   );
 }
