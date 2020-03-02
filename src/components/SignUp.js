@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+import {axiosWithAuth} from "../utils/axiosWithAuth";
+import { useHistory } from 'react-router-dom'
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
+
+const history = useHistory();
 
 const SignUp = ({values, handleChange, touched, errors, status}) => {
     const [users, setUsers] = useState([]);
@@ -9,6 +12,10 @@ const SignUp = ({values, handleChange, touched, errors, status}) => {
         console.log("Status has changed", status);
         status && setUsers(users => [...users, status]);
     }, [status]);
+    
+    
+    
+    
     return (
         <div className = "form">
             <h2>Sign Up</h2>
@@ -64,13 +71,16 @@ const FormikSignUp = withFormik({
         email: Yup.string().required("Email is required."),
         password: Yup.string().required("Password is required.").min(8, "Password must be at least 8 characters.")
     }),
+    
     handleSubmit(values, { setStatus, resetForm }) {
         console.log("Submitting", values);
-        axios.post("https://ls-wunderlist--production.herokuapp.com/api/users/register", values)
+        axiosWithAuth().post("/users/register", values)
             .then(response => {
+                window.localStorage.setItem('token', response.data.payload);
                 console.log("VALUES", values);
                 console.log("Success", response.data);
                 setStatus(response.data);
+                history.push('/protected');
                 resetForm();
             })
             .catch(response => {
