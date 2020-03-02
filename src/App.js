@@ -4,7 +4,10 @@ import Register from "./components/Register";
 import Navigation from "./components/Navigation";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+
 function App() {
+  
+  
   return (
     
     <Router>

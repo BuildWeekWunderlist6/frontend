@@ -5,7 +5,7 @@ import Register from "./Register";
 import Login from "./Login";
 import Home from "./Home";
 
-export default function Navigation() {
+export default function Navigation(props) {
     return (
         <Router>
         <div className = "navigation">
@@ -17,13 +17,12 @@ export default function Navigation() {
         </div>
         <Switch>
 
-        <Route path = "/login">
-            <Login/>
-        </Route>
+        <Route path = "/login" component={Login}/>
+          
+       
   
-        <Route path = "/register">
-          <Register/>
-        </Route>
+        <Route path = "/register" component={Register}/>
+          
 
         <Route path = "/">
             <Home/>

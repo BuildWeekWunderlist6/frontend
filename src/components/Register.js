@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
-
+import { browserHistory } from '../'
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
@@ -8,14 +8,14 @@ import * as Yup from "yup";
 
 const Register = ({values, handleChange, touched, errors, status}) => {
     const [users, setUsers] = useState([]);
+    
     useEffect(() => {
         console.log("Status has changed", status);
         status && setUsers(users => [...users, status]);
     }, [status]);
     
+
    
-    
-    
     return (
         <div className = "register">
             <h2>Register</h2>
@@ -72,8 +72,9 @@ const FormikRegister = withFormik({
         password: Yup.string().required("Password is required.").min(8, "Password must be at least 8 characters.")
     }),
     
-    handleSubmit(values, { setStatus, resetForm }) {
+    handleSubmit(values, { setStatus, resetForm, props }) {
         console.log("Submitting", values);
+        
         axiosWithAuth().post("/users/register", values)
             .then(response => {
                 window.localStorage.setItem('token', response.data.token);
@@ -81,8 +82,10 @@ const FormikRegister = withFormik({
                 console.log("VALUES", values);
                 console.log("Success", response.data);
                 setStatus(response.data);
-                // history.push('/protected')
+                
+                props.history.push('/login')
                 resetForm();
+                
             })
             .catch(response => {
                 console.log("Error posting data", response);
