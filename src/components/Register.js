@@ -6,7 +6,7 @@ import * as Yup from "yup";
 
 
 
-const Register = ({values, handleChange, touched, errors, status},{...props}) => {
+const Register = ({values, handleChange, touched, errors, status}) => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
         console.log("Status has changed", status);
@@ -76,11 +76,12 @@ const FormikRegister = withFormik({
         console.log("Submitting", values);
         axiosWithAuth().post("/users/register", values)
             .then(response => {
-                window.localStorage.setItem('token', response.data.payload);
+                window.localStorage.setItem('token', response.data.token);
+                console.log("payload", response.data.token)
                 console.log("VALUES", values);
                 console.log("Success", response.data);
                 setStatus(response.data);
-               
+                // history.push('/protected')
                 resetForm();
             })
             .catch(response => {
