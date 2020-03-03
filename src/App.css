@@ -11,7 +11,7 @@
   text-align: center;
 }
 
-.register, .login {
+.register, .login, .homepage {
   margin-top: 50px;
 }
 
@@ -27,9 +27,10 @@
   width: 100px;
 }
 
-.navlinks {
-  display: flex;
-  justify-content: space-evenly;
+.navlinks a {
+  color: white;
+  margin: 30px;
+  text-decoration: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -42,9 +43,9 @@
   background-color: #282c34;
   height: 100px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   font-size: 20px;
   color: white;
 }

@@ -16,7 +16,7 @@ const Register = ({values, handleChange, touched, errors, status}) => {
     
    
     
-    
+
     return (
         <div className = "register">
             <h2>Register</h2>
