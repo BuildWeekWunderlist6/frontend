@@ -9,6 +9,7 @@ import * as Yup from "yup";
 
 const Login = ({values, handleChange, touched, errors, status}) => {
     const [users, setUsers] = useState([]);
+    
     useEffect(() => {
         console.log("Status has changed", status);
         status && setUsers(users => [...users, status]);
@@ -41,16 +42,18 @@ const FormikLogin = withFormik({
         email: Yup.string().required("Email is required."),
         password: Yup.string().required("Password is required.")
     }),
-    
-    handleSubmit(values, { setStatus, resetForm, props }) {
+   
+    handleSubmit(values, { setStatus, resetForm, props}) {
         console.log("Submitting", values);
+        console.log("this is props", props)
+        
         axiosWithAuth().post("/users/login", values)
             .then(response => {
                 window.localStorage.setItem('token', response.data.token);
                 console.log("VALUES", values);
                 console.log("Success", response.data);
                 setStatus(response.data);
-                props.history.push('/main')
+                props.history.push('/dashboard');
                 resetForm();
             })
             .catch(response => {

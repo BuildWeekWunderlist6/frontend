@@ -6,7 +6,6 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 
-
 const Register = ({values, handleChange, touched, errors, status}) => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
@@ -54,6 +53,7 @@ const FormikRegister = withFormik({
     
     handleSubmit(values, { setStatus, resetForm, props }) {
         console.log("Submitting", values);
+       
         axiosWithAuth().post("/users/register", values)
             .then(response => {
                 window.localStorage.setItem('token', response.data.token);
@@ -61,11 +61,11 @@ const FormikRegister = withFormik({
                 console.log("VALUES", values);
                 console.log("Success", response.data);
                 setStatus(response.data);
-                props.history.push('/main')
+                // props.history.push('/dashboard');
                 resetForm();
             })
-            .catch(response => {
-                console.log("Error posting data", response);
+            .catch(err => {
+                console.log("Error posting data", err);
             });
     }
 })(Register);
