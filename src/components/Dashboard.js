@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useForm } from "react-hook-form";
+import GetStatus from "./GetStatus";
 
 const Dashboard = () => {
     const [data, setData] = useState([]);
@@ -9,6 +10,8 @@ const Dashboard = () => {
     const decoded = jwt_decode(token);
     const userID = decoded.sub;
     const userName = decoded.first_name;
+
+    const [loadStatus, setLoadStatus] = useState(false);
     
    
 
@@ -20,16 +23,20 @@ const Dashboard = () => {
         axios.get(`https://ls-wunderlist--production.herokuapp.com/api/users/${userID}/todo-lists`)
             .then(response => {
                 setData(response.data);
+                setLoadStatus(true);
             })
             .catch(error => {
                 console.log("Error", error);
+                setLoadStatus(false);
             })
     }, [data]);
 
     return (
     <div className = "dashboard">
+        <div className = "status">
+        <GetStatus loaded = {loadStatus} username = {userName} />
+        </div>
     <div className = "dashboardtitle">
-        <h2>Welcome, {userName}. You can see all of your lists here!</h2> 
         
         </div>
         <div className = "newcardform">

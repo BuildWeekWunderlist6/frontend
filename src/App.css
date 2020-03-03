@@ -15,6 +15,10 @@
   margin-top: 50px;
 }
 
+.status {
+  margin-bottom: 20px;
+}
+
 .register input, .login input {
   font-size: 20px;
   width: 250px;
