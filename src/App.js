@@ -3,7 +3,7 @@ import './App.css';
 import PrivateRoute from "./components/PrivateRoute";
 import Dashboard from "./components/Dashboard"
 import { BrowserRouter as Router } from "react-router-dom";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link, NavLink, Route, Switch } from "react-router-dom";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
@@ -30,9 +30,9 @@ function App() {
       <nav className = "navigation">
         <div className = "navlinks">
       {token ? <> <Link to="/dashboard">Dashboard</Link><Link to="/addlist">Add List</Link></> : <>
-            <Link to = "/">Home</Link>
-            <Link to = "/login">Login</Link>
-            <Link to = "/register">Register</Link>  </>
+            <NavLink exact={true} activeClassName = "active" to = "/">Home</NavLink>
+            <NavLink activeClassName = "active" to = "/login">Login</NavLink>
+            <NavLink activeClassName = "active" to = "/register">Register</NavLink>  </>
             }
             </div>
         </nav>

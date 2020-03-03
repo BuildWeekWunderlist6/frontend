@@ -25,6 +25,15 @@
   justify-content: center;
 }
 
+.active {
+  border-bottom: 1px solid lightgray;
+}
+
+.hometext a, .usercard a {
+  text-decoration: none;
+  color: #4051B6;
+}
+
 .usercard p {
   margin-top: 30px;
 }
