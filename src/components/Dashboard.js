@@ -13,7 +13,8 @@ const Dashboard = () => {
    
 
     const { register, handleSubmit, watch, errors } = useForm();
-    const onSubmit = newList => { console.log("Submitted data", newList)};
+    const onListSubmit = newList => { console.log("Submitted data", newList)};
+    const onTaskSubmit = newTask => { console.log("Submitted data", newTask)};
 
     useEffect(() => {
         axios.get(`https://ls-wunderlist--production.herokuapp.com/api/users/${userID}/todo-lists`)
@@ -32,8 +33,8 @@ const Dashboard = () => {
         
         </div>
         <div className = "newcardform">
-            <form onSubmit = {handleSubmit(onSubmit)} className = "newcard">
-                <input name = "name" placeholder = "Add new list" ref = {register({required : true})} />
+            <form onListSubmit = {handleSubmit(onListSubmit)} className = "newcard">
+                <input name = "listname" placeholder = "Add new list" ref = {register({required : true})} />
                 <input type = "submit" />
             </form>
         </div>
@@ -41,13 +42,34 @@ const Dashboard = () => {
 
         {data.map(data => {
             return (
-
-                <div className = "card">
+            <div className = "card">
+            <button className = "delete" type = "button">Delete</button>
             <h2>{data.name}</h2>
             <div className = "list">
-            <p> Task </p>
-            <p> Task </p>
-            <p> Task </p>
+            <form onTaskSubmit = {handleSubmit(onTaskSubmit)} className = "newtask">
+                <input name = "taskname" placeholder = "Add new task" ref = {register({required : true})} />
+                <input type = "submit" />
+            </form>
+            <label>First Task
+            <input name = "isCompleted" type = "checkbox" />
+            <br/>
+            </label>
+            <label>Second Task
+            <input name = "isCompleted" type = "checkbox" />
+            <br/>
+            </label>
+            <label>Third Task
+            <input name = "isCompleted" type = "checkbox" />
+            <br/>
+            </label>
+            <label>Fourth Task
+            <input name = "isCompleted" type = "checkbox" />
+            <br/>
+            </label>
+            <label>Fifth Task
+            <input name = "isCompleted" type = "checkbox" />
+            <br/>
+            </label>
             </div>
             </div>
 

@@ -49,11 +49,21 @@
   text-align: center;
 }
 
+.delete {
+  position: relative;
+  top: -10px;
+  right: -160px;
+}
+
 .allcards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 10px;
+}
+
+.list input {
+  margin: 10px;
 }
 
 .dashboardtitle {
