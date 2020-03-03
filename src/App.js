@@ -8,16 +8,22 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import jwt_decode from 'jwt-decode';
+import AddList from "./components/AddList";
 
 
 
 function App() {
-  const LoggedIn = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
-  const token = window.localStorage.getItem("token");
+
+ 
   const decoded = jwt_decode(token);
   const userID = decoded.sub;
   const userEmail = decoded.email;
+ 
+ 
+  
+ 
   
   return (
     
@@ -26,7 +32,7 @@ function App() {
       <header className="App-header">
       <nav className = "navigation">
         <div className = "navlinks">
-      {LoggedIn ? <><p>{userEmail} <br/> User ID: {userID}</p></> : <>
+      {token ? <><p>{userEmail} <br/> User ID: {userID}</p> <Link to="/dashboard">Dashboard</Link><Link to="/addlist">Add List</Link></> : <>
             <Link to = "/">Home</Link>
             <Link to = "/login">Login</Link>
             <Link to = "/register">Register</Link>  </>
@@ -37,11 +43,12 @@ function App() {
       </header>
      
     </div>
-{LoggedIn ? 
+{token ? 
     
     (<Switch>
       
       <PrivateRoute path='/dashboard' component={Dashboard}/>
+      <PrivateRoute path='/addlist' component={AddList}/>
         
         </Switch>) : 
         (
