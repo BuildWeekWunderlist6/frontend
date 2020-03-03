@@ -39,6 +39,31 @@
   }
 }
 
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 25%;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+}
+
+.allcards {
+  display: flex;
+  justify-content: center;
+}
+
+.dashboardtitle {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
 .App-header {
   background-color: #282c34;
   height: 100px;
