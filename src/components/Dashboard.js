@@ -45,11 +45,9 @@ const Dashboard = () => {
                 <div className = "card">
             <h2>{data.name}</h2>
             <div className = "list">
-            <ul>
-                <li>Task #1</li>
-                <li>Task #2</li>
-                <li>Task #3</li>
-            </ul>
+            <p> Task </p>
+            <p> Task </p>
+            <p> Task </p>
             </div>
             </div>
 
