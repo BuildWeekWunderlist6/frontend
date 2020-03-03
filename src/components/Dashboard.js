@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { connect } from 'react-redux';
+// ACTIONS
+import { updateList } from '../actions/index';
+
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useForm } from "react-hook-form";
 import GetStatus from "./GetStatus";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
     const [data, setData] = useState([]);
+    const [newTitleText, setNewTitleText] = useState({
+        name: "",
+    });
     const token = window.localStorage.getItem("token");
     const decoded = jwt_decode(token);
     const userID = decoded.sub;
@@ -13,7 +20,17 @@ const Dashboard = () => {
 
     const [loadStatus, setLoadStatus] = useState(false);
     
-   
+    //UPDATE FUNCTION
+    const handleChanges = e => {
+        setNewTitleText({[e.target.name]: e.target.value});
+       
+      };
+
+    const updateTitle = (text, id) => {
+        props.updateList(text, id);
+    }
+
+
 
     const { register, handleSubmit, watch, errors } = useForm();
     const onListSubmit = newList => { console.log("Submitted data", newList)};
@@ -29,7 +46,9 @@ const Dashboard = () => {
                 console.log("Error", error);
                 setLoadStatus(false);
             })
-    }, [data]);
+    }, [data.id]);
+
+
 
     return (
     <div className = "dashboard">
@@ -48,10 +67,19 @@ const Dashboard = () => {
         <div className = "allcards">
 
         {data.map(data => {
+            const id = data.id;
             return (
-            <div className = "card">
+            <div key={data.id} className = "card">
             <button className = "delete" type = "button">Delete</button>
             <h2>{data.name}</h2>
+            
+            <input type="text"
+            name="name"
+            onChange={handleChanges}
+             />
+
+            <button onClick={() => {updateTitle(newTitleText, id)}}>Update</button>
+
             <div className = "list">
             <form onTaskSubmit = {handleSubmit(onTaskSubmit)} className = "newtask">
                 <input name = "taskname" placeholder = "Add new task" ref = {register({required : true})} />
@@ -92,4 +120,15 @@ const Dashboard = () => {
  
 }
 
-export default Dashboard;
+const mapStateToProps = state => {
+    return {
+       
+        isEditing: state.isEditing,
+       
+    }
+};
+
+export default connect(
+    mapStateToProps,
+    {updateList}
+)(Dashboard); 
