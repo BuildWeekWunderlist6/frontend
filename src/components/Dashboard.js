@@ -31,7 +31,7 @@ const Dashboard = () => {
     return (
     <div className = "dashboard">
     <div className = "dashboardtitle">
-        <h2>Welcome to the dashboard! You can see all of your lists here!</h2>
+        <h2>Welcome! You can see all of your lists here!</h2>
         </div>
         <div className = "allcards">
 
