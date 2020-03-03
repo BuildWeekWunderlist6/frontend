@@ -1,6 +1,8 @@
 const initialState = {
 
-    isFetchingData: false
+name: "",
+
+    
 }
 
 
