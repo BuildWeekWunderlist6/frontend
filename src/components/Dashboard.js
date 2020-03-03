@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import jwt_decode from 'jwt-decode';
+import jwt_decode from "jwt-decode";
+import { useForm } from "react-hook-form";
 
 const Dashboard = () => {
     const [data, setData] = useState([]);
@@ -9,29 +10,29 @@ const Dashboard = () => {
     const userID = decoded.sub;
     const userEmail = decoded.email;
 
+    const { register, handleSubmit, watch, errors } = useForm();
+    const onSubmit = newList => { console.log("Submitted data", newList)};
+
     useEffect(() => {
         axios.get(`https://ls-wunderlist--production.herokuapp.com/api/users/${userID}/todo-lists`)
             .then(response => {
-                console.log("Pulling in data from API with userID", response.data);
-                console.log("Token", token)
-                console.log("decoded", decoded)
-                console.log("userID", userID)
-                console.log("Email", userEmail)
                 setData(response.data);
             })
             .catch(error => {
-                console.log("Error", error)
-                console.log("Token", token)
-                console.log("decoded", decoded)
-                console.log("userID", userID)
-                console.log("Email", userEmail)
+                console.log("Error", error);
             })
-    }, []);
+    }, [data]);
 
     return (
     <div className = "dashboard">
     <div className = "dashboardtitle">
-        <h2>Welcome! You can see all of your lists here!</h2>
+        <h2>Welcome! You can see all of your lists here!</h2> 
+        </div>
+        <div className = "newcardform">
+            <form onSubmit = {handleSubmit(onSubmit)} className = "newcard">
+                <input name = "name" placeholder = "Add new list" ref = {register({required : true})} />
+                <input type = "submit" />
+            </form>
         </div>
         <div className = "allcards">
 
