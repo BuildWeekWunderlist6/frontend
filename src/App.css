@@ -56,12 +56,21 @@
 .allcards {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 }
 
 .dashboardtitle {
-  text-align: center;
   display: flex;
   justify-content: center;
+}
+
+.newcardform {
+  display: flex;
+  justify-content: center;
+}
+
+.newcardform input {
+  font-size: 18px;
 }
 
 .App-header {
