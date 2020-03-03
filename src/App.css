@@ -13,16 +13,45 @@
 
 .register, .login, .homepage {
   margin-top: 50px;
+  font-size: 20px;
 }
 
 .status {
   margin-bottom: 20px;
 }
 
+.dashboardtitle, .newcardform, .maincard  {
+  display: flex;
+  justify-content: center;
+}
+
+.active {
+  border-bottom: 1px solid lightgray;
+}
+
+.hometext a, .usercard a {
+  text-decoration: none;
+  color: #4051B6;
+}
+
+.usercard p {
+  margin-top: 30px;
+}
+
 .register input, .login input {
   font-size: 20px;
-  width: 250px;
+  width: 350px;
   margin: 10px;
+}
+
+.login, .register, .homepage {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  max-height: 700px;
+  padding: 50px;
+  width: 960px;
+  display: flex;
+  justify-content: center;
 }
 
 .register button, .login button {
@@ -68,16 +97,6 @@
 
 .list input {
   margin: 10px;
-}
-
-.dashboardtitle {
-  display: flex;
-  justify-content: center;
-}
-
-.newcardform {
-  display: flex;
-  justify-content: center;
 }
 
 .newcardform input {

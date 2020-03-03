@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import { TextField } from "formik-material-ui";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { Link, Route, Switch } from "react-router-dom";
 
 
 const Register = ({values, handleChange, touched, errors, status}) => {
@@ -17,7 +18,9 @@ const Register = ({values, handleChange, touched, errors, status}) => {
     
 
     return (
+        <div className = "maincard">
         <div className = "register">
+            <div className = "usercard">
             <h2>Register</h2>
         <Form>
             <Field component = {TextField} id = "first_name" type = "text" name = "first_name" placeholder = "First Name" />
@@ -31,6 +34,9 @@ const Register = ({values, handleChange, touched, errors, status}) => {
             <Button type = "submit" variant = "contained" color = "primary">Submit</Button>
             
         </Form>
+        <p>Already registered? <Link to = "/login">Login</Link></p>
+        </div>
+        </div>
         </div>
     );
 };
