@@ -7,7 +7,7 @@ import { Link, Route, Switch } from "react-router-dom";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
-import jwt_decode from 'jwt-decode';
+
 import AddList from "./components/AddList";
 
 
@@ -16,10 +16,7 @@ function App() {
   const token = localStorage.getItem("token");
 
 
- 
-  const decoded = jwt_decode(token);
-  const userID = decoded.sub;
-  const userEmail = decoded.email;
+
  
  
   
@@ -32,7 +29,7 @@ function App() {
       <header className="App-header">
       <nav className = "navigation">
         <div className = "navlinks">
-      {token ? <><p>{userEmail} <br/> User ID: {userID}</p> <Link to="/dashboard">Dashboard</Link><Link to="/addlist">Add List</Link></> : <>
+      {token ? <> <Link to="/dashboard">Dashboard</Link><Link to="/addlist">Add List</Link></> : <>
             <Link to = "/">Home</Link>
             <Link to = "/login">Login</Link>
             <Link to = "/register">Register</Link>  </>

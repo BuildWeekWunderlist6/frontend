@@ -8,7 +8,9 @@ const Dashboard = () => {
     const token = window.localStorage.getItem("token");
     const decoded = jwt_decode(token);
     const userID = decoded.sub;
-    const userEmail = decoded.email;
+    const userName = decoded.first_name;
+    
+   
 
     const { register, handleSubmit, watch, errors } = useForm();
     const onSubmit = newList => { console.log("Submitted data", newList)};
@@ -26,7 +28,8 @@ const Dashboard = () => {
     return (
     <div className = "dashboard">
     <div className = "dashboardtitle">
-        <h2>Welcome! You can see all of your lists here!</h2> 
+        <h2>Welcome, {userName}. You can see all of your lists here!</h2> 
+        
         </div>
         <div className = "newcardform">
             <form onSubmit = {handleSubmit(onSubmit)} className = "newcard">
