@@ -105,7 +105,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #1073ac;
   height: 100px;
   display: flex;
   flex-direction: row-reverse;
@@ -117,13 +117,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
