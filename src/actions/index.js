@@ -32,7 +32,15 @@ export const updateList = (payload, id) => dispatch => {
     .catch(err => {
         console.log(err)
     })
+}
 
 
-
+export const deleteList = (id) => dispatch => {
+    console.log(id);
+axiosWithAuth()
+    .delete(`https://ls-wunderlist--production.herokuapp.com/api/todo-lists/${id}`)
+    .then(res => {
+        console.log(res);
+    })
+    .catch(err => console.log(err));
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 // ACTIONS
-import { updateList } from '../actions/index';
+import { updateList, deleteList } from '../actions/index';
 
 import axios from "axios";
 import jwt_decode from "jwt-decode";
@@ -30,6 +30,11 @@ const Dashboard = (props) => {
         props.updateList(text, id);
     }
 
+    //DELETE FUNCTION
+
+    const deleteItem = id => {
+        props.deleteList(id);
+    }
 
 
     const { register, handleSubmit, watch, errors } = useForm();
@@ -70,7 +75,7 @@ const Dashboard = (props) => {
             const id = data.id;
             return (
             <div key={data.id} className = "card">
-            <button className = "delete" type = "button">Delete</button>
+            <button onClick={() => {deleteItem(id)}}className = "delete" type = "button">Delete</button>
             <h2>{data.name}</h2>
             
             <input type="text"
@@ -130,5 +135,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    {updateList}
+    {updateList, deleteList}
 )(Dashboard); 
