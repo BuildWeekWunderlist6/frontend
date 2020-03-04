@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 // ACTIONS
 import { updateList, deleteList } from '../actions/index';
-import {useSpring, animated} from "react-spring";
-
+import { animated } from "react-spring";
+import SpringProps from "./Animations";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useForm } from "react-hook-form";
@@ -20,8 +20,6 @@ const Dashboard = (props) => {
     const userName = decoded.first_name;
 
     const [loadStatus, setLoadStatus] = useState(false);
-
-    const springProps = useSpring({opacity: 1, from: {opacity: 0}, config: { mass: 5, tension: 250, friction: 80 }});
 
     //UPDATE FUNCTION
     const handleChanges = e => {
@@ -60,7 +58,7 @@ const Dashboard = (props) => {
 
     return (
     <div className = "dashboard">
-        <animated.div style = {springProps}>
+        <animated.div style = {SpringProps()}>
         <div className = "status">
         <GetStatus loaded = {loadStatus} username = {userName} />
         </div>
@@ -74,7 +72,7 @@ const Dashboard = (props) => {
                 <input type = "submit" />
             </form>
         </div>
-        <animated.div style = {springProps}>
+        <animated.div style = {SpringProps()}>
         <div className = "allcards">
 
         {data.map(data => {
