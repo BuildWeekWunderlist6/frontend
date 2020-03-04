@@ -102,6 +102,10 @@
   margin-top: 10px;
 }
 
+.update, .add {
+  margin: 5px;
+}
+
 .list {
   margin-top: 10px;
 }

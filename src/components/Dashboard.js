@@ -86,13 +86,15 @@ const Dashboard = (props) => {
             <div key={data.id} className = "card">
             <Button size = "small" color = "secondary" variant = "outlined" onClick={() => {deleteItem(id)}}className = "delete" type = "contained">Delete</Button>
             <h2>{data.name}</h2>
-            
+            <div className = "update"> 
              <TextField name = "name" placeholder = "New name" onInput = {handleChanges}></TextField>
 
             <Button size = "small" variant = "contained" color = "primary" onClick={() => {updateTitle(newTitleText, id)}}>Update</Button>
-
+            </div>
+            <div className = "add"> 
                 <TextField name = "taskname" placeholder = "Add new task"></TextField>
                 <Button size = "small" type = "submit" variant = "contained" color = "primary">Add</Button>
+                </div>
 
                 <div className = "list">
             <label>First Task
@@ -104,14 +106,6 @@ const Dashboard = (props) => {
             <br/>
             </label>
             <label>Third Task
-            <Checkbox value = "isCompleted" />
-            <br/>
-            </label>
-            <label>Fourth Task
-            <Checkbox value = "isCompleted" />
-            <br/>
-            </label>
-            <label>Fifth Task
             <Checkbox value = "isCompleted" />
             <br/>
             </label>
