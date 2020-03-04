@@ -52,7 +52,7 @@ const Dashboard = (props) => {
          
     }, []);
 
-
+   //CARDS
 
     return (
     <div className = "dashboard">
@@ -75,15 +75,6 @@ const Dashboard = (props) => {
   
 
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
         {props.lists.map(data => {
             console.log("this is data", data);
            
