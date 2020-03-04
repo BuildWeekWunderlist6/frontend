@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 // ACTIONS
 import { updateList, deleteList, getData } from '../actions/index';
-import {useSpring, animated} from "react-spring";
-
-
+import { animated } from "react-spring";
+import SpringProps from "./Animations";
+import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useForm } from "react-hook-form";
 import GetStatus from "./GetStatus";
@@ -72,7 +72,7 @@ const Dashboard = (props) => {
                 <input type = "submit" />
             </form>
         </div>
-        {/* <animated.div style = {springProps}> */}
+        <animated.div style = {springProps}>
         <div className = "allcards">
   
 
@@ -133,7 +133,7 @@ const Dashboard = (props) => {
 
       
             </div>
-            {/* </animated.div> */}
+            </animated.div>
 
             </div>
       
