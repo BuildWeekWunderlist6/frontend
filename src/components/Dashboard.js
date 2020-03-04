@@ -8,6 +8,8 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useForm } from "react-hook-form";
 import GetStatus from "./GetStatus";
+import Button from "@material-ui/core/Button";
+import TextField from '@material-ui/core/TextField';
 
 const Dashboard = (props) => {
     const [data, setData] = useState([]);
@@ -66,8 +68,8 @@ const Dashboard = (props) => {
         </div>
         <div className = "newcardform">
             <form onListSubmit = {handleSubmit(onListSubmit)} className = "newcard">
-                <input name = "listname" placeholder = "Add new list" ref = {register({required : true})} />
-                <input type = "submit" />
+                <TextField id = "listname" type = "text" placeholder = "Add new list" ref = {register({required : true})} />
+                <Button size = "small" type = "submit" variant = "contained" color = "primary">Add</Button>
             </form>
         </div>
         <animated.div style = {SpringProps()}>
@@ -81,21 +83,17 @@ const Dashboard = (props) => {
             const id = data.id;
             return (
             <div key={data.id} className = "card">
-            <button onClick={() => {deleteItem(id)}}className = "delete" type = "button">Delete</button>
+            <Button size = "small" color = "secondary" variant = "outlined" onClick={() => {deleteItem(id)}}className = "delete" type = "contained">Delete</Button>
             <h2>{data.name}</h2>
             
-            <input type="text"
-            name="name"
-            onChange={handleChanges}
-             />
+             <TextField name = "name" placeholder = "New name" onInput = {handleChanges}></TextField>
 
-            <button onClick={() => {updateTitle(newTitleText, id)}}>Update</button>
+            <Button size = "small" variant = "contained" color = "primary" onClick={() => {updateTitle(newTitleText, id)}}>Update</Button>
 
-            <div className = "list">
-            <form onTaskSubmit = {handleSubmit(onTaskSubmit)} className = "newtask">
-                <input name = "taskname" placeholder = "Add new task" ref = {register({required : true})} />
-                <input type = "submit" />
-            </form>
+                <TextField name = "taskname" placeholder = "Add new task"></TextField>
+                <Button size = "small" type = "submit" variant = "contained" color = "primary">Add</Button>
+                
+                <div className = "list">
             <label>First Task
             <input name = "isCompleted" type = "checkbox" />
             <br/>
