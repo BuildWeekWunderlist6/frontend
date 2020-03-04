@@ -5,13 +5,12 @@ import { TextField } from "formik-material-ui";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { Link, Route, Switch } from "react-router-dom";
-import {useSpring, animated} from "react-spring";
+import { animated } from "react-spring";
+import SpringProps from "./Animations";
 
 
 const Register = ({values, handleChange, touched, errors, status}) => {
     const [users, setUsers] = useState([]);
-
-    const props = useSpring({opacity: 1, from: {opacity: 0}, config: { mass: 5, tension: 250, friction: 80 }});
 
     useEffect(() => {
         console.log("Status has changed", status);
@@ -19,7 +18,7 @@ const Register = ({values, handleChange, touched, errors, status}) => {
     }, [status]);
 
     return (
-        <animated.div style = {props}>
+        <animated.div style = {SpringProps()}>
         <div className = "maincard">
         <div className = "register">
             <div className = "usercard">

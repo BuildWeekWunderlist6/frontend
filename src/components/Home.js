@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, Route, Switch } from "react-router-dom";
-import {useSpring, animated} from "react-spring";
+import { animated } from "react-spring";
+import SpringProps from "./Animations";
 
 
 export default function Home() {
-    const props = useSpring({opacity: 1, from: {opacity: 0}, config: { mass: 5, tension: 250, friction: 80 }});
     return (
-        <animated.div style = {props}>
+        <animated.div style = {SpringProps()}>
         <div className = "maincard">
         <div className = "homepage">
             <div className = "hometext">
