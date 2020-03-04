@@ -16,6 +16,12 @@
   font-size: 20px;
 }
 
+.addlist {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
 .status {
   margin-bottom: 20px;
 }
@@ -113,8 +119,14 @@
   justify-content: space-around;
   font-size: 20px;
   color: white;
+  box-shadow: 0 3px 6px 1px rgba(80, 78, 80, 1.8);
+  transition: 0.3s;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.status {
+  margin-top: 15px;
 }

@@ -14,13 +14,6 @@ import AddList from "./components/AddList";
 
 function App() {
   const token = localStorage.getItem("token");
-
-
-
- 
- 
-  
- 
   
   return (
     
@@ -29,7 +22,7 @@ function App() {
       <header className="App-header">
       <nav className = "navigation">
         <div className = "navlinks">
-      {token ? <> <Link to="/dashboard">Dashboard</Link><Link to="/addlist">Add List</Link></> : <>
+      {token ? <> <NavLink activeClassName = "active" to="/dashboard">Dashboard</NavLink><NavLink activeClassName = "active" to="/addlist">Add List</NavLink></> : <>
             <NavLink exact={true} activeClassName = "active" to = "/">Home</NavLink>
             <NavLink activeClassName = "active" to = "/login">Login</NavLink>
             <NavLink activeClassName = "active" to = "/register">Register</NavLink>  </>

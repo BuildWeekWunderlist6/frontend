@@ -26,7 +26,7 @@ name: "",
   }
 
     return (
-      <div>
+      <div className = "addlist">
         <form onSubmit={add}>
             <label>List Name: </label>
           <input
