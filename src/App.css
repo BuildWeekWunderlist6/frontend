@@ -90,7 +90,8 @@
 
 .allcards {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
   justify-content: center;
   margin-top: 10px;
 }
