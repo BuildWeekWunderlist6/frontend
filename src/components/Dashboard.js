@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 // ACTIONS
-import { updateList, deleteList, getData } from '../actions/index';
+import { updateList, deleteList } from '../actions/index';
 import { animated } from "react-spring";
 import SpringProps from "./Animations";
 import axios from "axios";
@@ -77,6 +77,15 @@ const Dashboard = (props) => {
   
 
 
+        
+        
+        
+        
+        
+        
+        
+        
+        
         {props.lists.map(data => {
             console.log("this is data", data);
            
