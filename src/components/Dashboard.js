@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import GetStatus from "./GetStatus";
 import Button from "@material-ui/core/Button";
 import TextField from '@material-ui/core/TextField';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const Dashboard = (props) => {
     const [data, setData] = useState([]);
@@ -92,26 +93,26 @@ const Dashboard = (props) => {
 
                 <TextField name = "taskname" placeholder = "Add new task"></TextField>
                 <Button size = "small" type = "submit" variant = "contained" color = "primary">Add</Button>
-                
+
                 <div className = "list">
             <label>First Task
-            <input name = "isCompleted" type = "checkbox" />
+            <Checkbox value = "isCompleted"></Checkbox>
             <br/>
             </label>
             <label>Second Task
-            <input name = "isCompleted" type = "checkbox" />
+            <Checkbox value = "isCompleted" />
             <br/>
             </label>
             <label>Third Task
-            <input name = "isCompleted" type = "checkbox" />
+            <Checkbox value = "isCompleted" />
             <br/>
             </label>
             <label>Fourth Task
-            <input name = "isCompleted" type = "checkbox" />
+            <Checkbox value = "isCompleted" />
             <br/>
             </label>
             <label>Fifth Task
-            <input name = "isCompleted" type = "checkbox" />
+            <Checkbox value = "isCompleted" />
             <br/>
             </label>
             </div>
