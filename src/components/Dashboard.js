@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 // ACTIONS
-import { updateList, deleteList } from '../actions/index';
+import { updateList, deleteList, getData } from '../actions/index';
 import {useSpring, animated} from "react-spring";
 
-import axios from "axios";
+
 import jwt_decode from "jwt-decode";
 import { useForm } from "react-hook-form";
 import GetStatus from "./GetStatus";
@@ -45,16 +45,14 @@ const Dashboard = (props) => {
     const onTaskSubmit = newTask => { console.log("Submitted data", newTask)};
 
     useEffect(() => {
-        axios.get(`https://ls-wunderlist--production.herokuapp.com/api/users/${userID}/todo-lists`)
-            .then(response => {
-                setData(response.data);
-                setLoadStatus(true);
-            })
-            .catch(error => {
-                console.log("Error", error);
-                setLoadStatus(false);
-            })
-    }, [data.id]);
+       
+        
+        setLoadStatus(true);
+        props.getData();
+        setLoadStatus(false);     
+        
+         
+    }, []);
 
 
 
@@ -74,10 +72,14 @@ const Dashboard = (props) => {
                 <input type = "submit" />
             </form>
         </div>
-        <animated.div style = {springProps}>
+        {/* <animated.div style = {springProps}> */}
         <div className = "allcards">
+  
 
-        {data.map(data => {
+
+        {props.lists.map(data => {
+            console.log("this is data", data);
+           
             const id = data.id;
             return (
             <div key={data.id} className = "card">
@@ -120,11 +122,18 @@ const Dashboard = (props) => {
             </div>
 
             )
-        })}
+            
+    
+
+         
+            
+        
+        })
+        }
 
       
             </div>
-            </animated.div>
+            {/* </animated.div> */}
 
             </div>
       
@@ -134,13 +143,16 @@ const Dashboard = (props) => {
 
 const mapStateToProps = state => {
     return {
-       
-        isEditing: state.isEditing,
+       lists: state.lists,
+       isFetching: state.isFetching
+        
+        
+        
        
     }
 };
 
 export default connect(
     mapStateToProps,
-    {updateList, deleteList}
+    {updateList, deleteList, getData}
 )(Dashboard); 
