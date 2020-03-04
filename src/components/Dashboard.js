@@ -43,16 +43,14 @@ const Dashboard = (props) => {
     const onTaskSubmit = newTask => { console.log("Submitted data", newTask)};
 
     useEffect(() => {
-        axios.get(`https://ls-wunderlist--production.herokuapp.com/api/users/${userID}/todo-lists`)
-            .then(response => {
-                setData(response.data);
-                setLoadStatus(true);
-            })
-            .catch(error => {
-                console.log("Error", error);
-                setLoadStatus(false);
-            })
-    }, [data.id]);
+       
+        
+        setLoadStatus(true);
+        props.getData();
+        setLoadStatus(false);     
+        
+         
+    }, []);
 
 
 
@@ -74,8 +72,21 @@ const Dashboard = (props) => {
         </div>
         <animated.div style = {SpringProps()}>
         <div className = "allcards">
+  
 
-        {data.map(data => {
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        {props.lists.map(data => {
+            console.log("this is data", data);
+           
             const id = data.id;
             return (
             <div key={data.id} className = "card">
@@ -118,7 +129,14 @@ const Dashboard = (props) => {
             </div>
 
             )
-        })}
+            
+    
+
+         
+            
+        
+        })
+        }
 
       
             </div>
@@ -132,13 +150,16 @@ const Dashboard = (props) => {
 
 const mapStateToProps = state => {
     return {
-       
-        isEditing: state.isEditing,
+       lists: state.lists,
+       isFetching: state.isFetching
+        
+        
+        
        
     }
 };
 
 export default connect(
     mapStateToProps,
-    {updateList, deleteList}
+    {updateList, deleteList, getData}
 )(Dashboard); 
