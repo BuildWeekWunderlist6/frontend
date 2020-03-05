@@ -5,7 +5,7 @@ import {FETCH_DATA_START, FETCH_DATA_SUCCESS, UPDATE_LIST_START, UPDATE_LIST_SUC
 const initialState = {
 user: jwt.decode(localStorage.getItem("token")),
 lists : [],
-list: {},
+
 isFetching: false
 }
 
@@ -39,10 +39,14 @@ const listReducer = (state=initialState, action) => {
         
         
         case UPDATE_LIST_SUCCESS:
+           
             return{
                 ...state,
                 lists: action.payload.lists,
+                // lists: action.payload,
                 isFetching: false
+              
+                
             }
         case DELETE_LIST_START:
             return{
@@ -52,6 +56,7 @@ const listReducer = (state=initialState, action) => {
         case DELETE_LIST_SUCCESS:
             return{
                 ...state,
+
             }
         
         

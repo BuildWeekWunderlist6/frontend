@@ -13,6 +13,8 @@ export const CREATE_TODO_START = "CREATE_TODO_START";
 export const CREATE_TODO_SUCCESS = "CREATE_TODO_SUCCESS";
 export const GET_TODO_SUCCESS = "GET_TODO_SUCCESS";
 export const GET_TODO_START = "GET_TODO_START";
+export const DELETE_TODO_START = "DELETE_TODO_START";
+export const DELETE_TODO_SUCCESS = "DELETE_TODO_SUCCESS"
 
 
 
@@ -44,14 +46,14 @@ export const getLists = payload => dispatch => {
 }
 
 
-export const addList = list => dispatch => {
+export const addList = (list, props) => dispatch => {
    
     
     axiosWithAuth()
         .post(`https://ls-wunderlist--production.herokuapp.com/api/todo-lists`, list)
         .then(res => {
             console.log(res);
-            
+            props.history.push('/dashboard')
         })
         .catch(err => {
             console.log(err)
@@ -117,4 +119,15 @@ export const getTodos = (todo_list_id) => dispatch => {
        
 
     })
+}
+
+export const deleteTodo = (id) => dispatch => {
+dispatch({type: DELETE_TODO_START})
+axiosWithAuth()
+.delete(`https://ls-wunderlist--production.herokuapp.com/api/todo-items/${id}`)
+.then(res => {
+    dispatch({type: DELETE_TODO_SUCCESS, payload: res.data})
+})
+
+
 }
