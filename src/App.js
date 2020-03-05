@@ -36,8 +36,7 @@ function App() {
 
       <Route path='/dashboard' component={Dashboard}/>
       <Route path='/addlist' component={AddList}/>
-      
-        
+
         </Switch>) : 
         (
       <Switch>
