@@ -130,3 +130,18 @@
 .status {
   margin-top: 15px;
 }
+
+@media (max-width: 500px) {
+  .App-header {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 30px;
+  }
+
+  .login, .register, .homepage {
+    width: 70%;
+  }
+
+}
+
+
