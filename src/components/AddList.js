@@ -27,6 +27,7 @@ const AddList = (props) => {
     return (
       <div className = "addlist">
         <div className = "card">
+        <h2>Add Task</h2>
           <div className = "newTaskCard">
         <form onSubmit={add}>
           <TextField
@@ -36,7 +37,7 @@ const AddList = (props) => {
             onInput={handleChange} placeholder = "New task name"
           />
           <br/>
-          
+
           <TextField
             type="date"
             name="name"
