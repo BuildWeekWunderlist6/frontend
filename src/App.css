@@ -136,10 +136,18 @@
     display: flex;
     flex-direction: column-reverse;
     padding-bottom: 30px;
+    height: 85px;
+    font-size: 18px;
   }
 
   .login, .register, .homepage {
-    width: 70%;
+    width: 75%;
+    padding: 30px;
+  }
+
+  .register input, .login input {
+    width: 100%;
+    margin: 5px;
   }
 
 }
