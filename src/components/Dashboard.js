@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
 // ACTIONS
-import { updateList, deleteList, getData } from '../actions/index';
+import { updateList, deleteList, getData } from '../redux/actions/index';
 import { animated } from "react-spring";
 import SpringProps from "./Animations";
 import axios from "axios";
@@ -18,7 +18,7 @@ const Dashboard = (props) => {
     const decoded = jwt_decode(token);
     const userID = decoded.sub;
     const userName = decoded.first_name;
-
+console.log("This is a user", props.user);
     const [loadStatus, setLoadStatus] = useState(false);
 
     //UPDATE FUNCTION
@@ -52,7 +52,6 @@ const Dashboard = (props) => {
          
     }, []);
 
-   //CARDS
 
     return (
     <div className = "dashboard">
@@ -76,7 +75,7 @@ const Dashboard = (props) => {
 
 
         {props.lists.map(data => {
-            console.log("this is data", data);
+           
            
             const id = data.id;
             return (
@@ -142,7 +141,8 @@ const Dashboard = (props) => {
 const mapStateToProps = state => {
     return {
        lists: state.lists,
-       isFetching: state.isFetching
+       isFetching: state.isFetching,
+       user: state.user
         
         
         

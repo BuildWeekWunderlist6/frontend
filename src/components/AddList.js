@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addList } from '../actions/index';
+import { addList } from '../redux/actions/index';
 
 const AddList = (props) => {
  const [list, setList] = useState({
