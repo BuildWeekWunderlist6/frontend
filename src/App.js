@@ -9,8 +9,6 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import AddList from "./components/AddList";
 
-
-
 function App() {
   const token = localStorage.getItem("token");
   
@@ -41,7 +39,7 @@ function App() {
         </Switch>) : 
         (
       <Switch>
-      
+
       <Login exact path = "/login" component={Login}/>
       
       <Route exact path = "/register">
