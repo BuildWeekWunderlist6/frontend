@@ -3,7 +3,6 @@ import { Link, Route, Switch } from "react-router-dom";
 import { animated } from "react-spring";
 import SpringProps from "./Animations";
 
-
 export default function Home() {
     return (
         <animated.div style = {SpringProps()}>
