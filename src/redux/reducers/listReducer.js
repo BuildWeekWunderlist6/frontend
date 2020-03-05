@@ -1,10 +1,11 @@
 import jwt from "jsonwebtoken";
-import {FETCH_DATA_START, FETCH_DATA_SUCCESS, UPDATE_LIST_START, UPDATE_LIST_SUCCESS, SET_USER} from "../actions/index";
+import {FETCH_DATA_START, FETCH_DATA_SUCCESS, UPDATE_LIST_START, UPDATE_LIST_SUCCESS, SET_USER, DELETE_LIST_START, DELETE_LIST_SUCCESS} from "../actions/index";
 
 
 const initialState = {
 user: jwt.decode(localStorage.getItem("token")),
 lists : [],
+list: {},
 isFetching: false
 }
 
@@ -14,7 +15,7 @@ const listReducer = (state=initialState, action) => {
             return{
                 ...state,
                 user: action.payload
-            }
+            };
         
         
         
@@ -33,17 +34,25 @@ const listReducer = (state=initialState, action) => {
         case UPDATE_LIST_START:
             return{
                 ...state,
-                isFetching: true
+                
             }
         
         
         case UPDATE_LIST_SUCCESS:
             return{
                 ...state,
-                lists: [action.payload],
+                lists: action.payload.lists,
                 isFetching: false
             }
-        
+        case DELETE_LIST_START:
+            return{
+                ...state,
+
+            }
+        case DELETE_LIST_SUCCESS:
+            return{
+                ...state,
+            }
         
         
         

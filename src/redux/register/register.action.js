@@ -13,7 +13,7 @@ axios
         localStorage.setItem("token", token);
         dispatch({ type: REGISTER_SUCCESS, payload: response.data})
         console.log("this is from inside the action creator", response.data);
-       
+      
         console.log(response.data);
     })
     .catch(error => {

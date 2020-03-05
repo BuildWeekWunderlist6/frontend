@@ -1,8 +1,9 @@
 import {combineReducers} from "redux";
-import todoReducer from "./reducers/todoReducer";
+import listReducer from "./reducers/listReducer";
 import registerReducer from "./register/register.reducer";
 import loginReducer from "./login/login.reducer";
+import todoReducer from "./reducers/todoReducer";
 
 export default combineReducers({
-    todo: todoReducer, register: registerReducer, login: loginReducer
+    list: listReducer, register: registerReducer, login: loginReducer, todo: todoReducer
 });
