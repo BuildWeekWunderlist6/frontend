@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {getData} from "./redux/actions/index";
+import ParticleComponent from "./components/ParticleComponent";
 
 //REDUX
 import {todoReducer as reducer} from "./redux/reducers/todoReducer"; 
@@ -19,7 +20,7 @@ const middleWares = [thunk, logger]
 const store = composeEnhancers(createStore(rootReducer, applyMiddleware(...middleWares)));
 // store.dispatch(getData());
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><ParticleComponent/><App /></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

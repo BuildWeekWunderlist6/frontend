@@ -5,6 +5,7 @@ const ParticleComponent = (props) => (
   <div
     style={{
       position: "absolute",
+      zIndex: -1,
       top: 0,
       left: 0,
       width: "100%",
@@ -22,13 +23,13 @@ const ParticleComponent = (props) => (
             }
           },
           color: {
-            value: "#39ff14"
+            value: "random"
           },
           shape: {
             type: "circle",
             stroke: {
               width: 2,
-              color: "#39ff14"
+              color: "#ffffff"
             },
             polygon: {
               nb_sides: 4
@@ -50,7 +51,7 @@ const ParticleComponent = (props) => (
             }
           },
           size: {
-            value: 1.5,
+            value: 3.0,
             random: true,
             anim: {
               enable: false,

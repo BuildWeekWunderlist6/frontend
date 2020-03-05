@@ -1,13 +1,9 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
-.login, .register, .homepage {
+.App, .login, .register, .homepage {
   text-align: center;
 }
 
@@ -134,3 +130,26 @@
 .status {
   margin-top: 15px;
 }
+
+@media (max-width: 500px) {
+  .App-header {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 30px;
+    height: 85px;
+    font-size: 18px;
+  }
+
+  .login, .register, .homepage {
+    width: 75%;
+    padding: 30px;
+  }
+
+  .register input, .login input {
+    width: 100%;
+    margin: 5px;
+  }
+
+}
+
+
