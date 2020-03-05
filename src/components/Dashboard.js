@@ -86,6 +86,7 @@ const Dashboard = (props) => {
             const id = data.id;
             return (
             <div key={data.id} className = "card">
+                <div className = "dashcard">
             <DeleteIcon color="secondary" fontSize = "large" onClick={() => {deleteItem(id)}}className = "delete" type = "contained"></DeleteIcon>
             <CheckCircleIcon color="primary" fontSize = "large" onClick={() => {deleteItem(id)}}className = "complete" type = "contained"></CheckCircleIcon>
             <h2>{data.name}</h2>
@@ -94,6 +95,7 @@ const Dashboard = (props) => {
              <TextField name = "name" placeholder = "New name" onInput = {handleChanges}></TextField>
 
             <Button size = "small" variant = "contained" color = "primary" onClick={() => {updateTitle(newTitleText, id)}}>Update</Button>
+            </div>
             </div>
             {/* <div className = "add"> 
                 <TextField name = "taskname" placeholder = "Add new task"></TextField>

@@ -23,10 +23,6 @@
   padding: 10px;
 }
 
-.addButton {
-  margin-top: 20px;
-}
-
 .addlist {
   margin-top: 20px;
   display: flex;
@@ -99,6 +95,15 @@
   text-align: center;
 }
 
+.checkTask {
+  margin-top: 10px;
+}
+
+.card .dashcard {
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
 .delete {
   position: relative;
   top: -10px;
@@ -121,6 +126,7 @@
 
 .update, .add {
   margin: 5px;
+  padding: 10px;
 }
 
 .list {

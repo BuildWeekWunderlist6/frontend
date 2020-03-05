@@ -44,11 +44,13 @@ const AddList = (props) => {
           />
           <br/>
 
+<div className = "checkTask">
 <label>Recurring? </label>
           <Checkbox
             type="checkbox"
             name="name"
           />
+          </div>
   
           <br/>
           <div className = "addButton">
