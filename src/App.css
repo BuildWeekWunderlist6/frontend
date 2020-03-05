@@ -12,6 +12,17 @@
   font-size: 20px;
 }
 
+.newTaskCard input {
+  margin: 10px;
+}
+
+.newTaskCard {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  padding: 10px;
+}
+
 .addlist {
   margin-top: 20px;
   display: flex;

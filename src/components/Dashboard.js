@@ -87,6 +87,7 @@ const Dashboard = (props) => {
             <div key={data.id} className = "card">
             <DeleteIcon color="secondary" fontSize = "large" onClick={() => {deleteItem(id)}}className = "delete" type = "contained"></DeleteIcon>
             <h2>{data.name}</h2>
+            <h4>{data.created_at}</h4>
             <div className = "update"> 
              <TextField name = "name" placeholder = "New name" onInput = {handleChanges}></TextField>
 
@@ -97,7 +98,7 @@ const Dashboard = (props) => {
                 <Button size = "small" type = "submit" variant = "contained" color = "primary">Add</Button>
                 </div> */}
 
-                <Todos id={data.id}/>
+                {/* <Todos id={data.id}/> */}
 
                 {/* <div className = "list">
             <label>First Task

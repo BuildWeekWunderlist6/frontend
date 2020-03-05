@@ -19,7 +19,7 @@ function App() {
       <header className="App-header">
       <nav className = "navigation">
         <div className = "navlinks">
-      {token ? <><Link to="/dashboard">Dashboard</Link><Link to="/addlist">Add List</Link></> : <>
+      {token ? <><Link to="/dashboard">Dashboard</Link><Link to="/addlist">Add Task</Link></> : <>
             <NavLink exact = {true} activeClassName = "active" to = "/">Home</NavLink>
             <NavLink activeClassName = "active" to = "/login">Login</NavLink>
             <NavLink activeClassName = "active" to = "/register">Register</NavLink>  </>

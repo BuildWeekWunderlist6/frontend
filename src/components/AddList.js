@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addList } from '../redux/actions/index';
+import Button from "@material-ui/core/Button";
+import TextField from '@material-ui/core/TextField';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const AddList = (props) => {
  const [list, setList] = useState({name: "",});
@@ -23,17 +26,35 @@ const AddList = (props) => {
 
     return (
       <div className = "addlist">
+        <div className = "card">
+          <div className = "newTaskCard">
         <form onSubmit={add}>
-            <label>List Name: </label>
-          <input
+          <TextField
             type="text"
             name="name"
             value={list.name}
-            onChange={handleChange}
+            onInput={handleChange} placeholder = "New task name"
           />
+          <br/>
           
-          <button>Add List</button>
+          <TextField
+            type="date"
+            name="name"
+          />
+          <br/>
+
+<label>Recurring? </label>
+          <Checkbox
+            type="checkbox"
+            name="name"
+          />
+  
+          <br/>
+          
+          <Button size = "medium" variant = "contained" color = "primary" onClick = {add} >Add Task</Button>
         </form>
+        </div>
+      </div>
       </div>
     )
 }
