@@ -13,7 +13,8 @@ import logger from "redux-logger";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middleWares = [thunk, logger]
-const store = composeEnhancers(createStore(reducer, applyMiddleware(...middleWares)));
+const store = composeEnhancers(createStore(rootReducer, applyMiddleware(...middleWares)));
+// store.dispatch(getData());
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 

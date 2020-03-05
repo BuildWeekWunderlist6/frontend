@@ -33,8 +33,8 @@ function App() {
 {token ? 
     
     (<Switch>
-      <PrivateRoute path='/dashboard' component={Dashboard}/>
-      <PrivateRoute path='/addlist' component={AddList}/>
+      <Route path='/dashboard' component={Dashboard}/>
+      <Route path='/addlist' component={AddList}/>
         
         </Switch>) : 
         (
