@@ -51,8 +51,9 @@ const AddList = (props) => {
           />
   
           <br/>
-          
+          <div className = "addButton">
           <Button size = "medium" variant = "contained" color = "primary" onClick = {add} >Add Task</Button>
+          </div>
         </form>
         </div>
       </div>
