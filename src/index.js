@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {getLists} from "./redux/actions/index";
+import {getData} from "./redux/actions/index";
+import ParticleComponent from "./components/ParticleComponent";
 
 //REDUX
 
