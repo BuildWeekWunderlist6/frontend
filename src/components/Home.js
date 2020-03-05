@@ -10,7 +10,7 @@ export default function Home() {
         <div className = "homepage">
             <div className = "hometext">
                 <h2>Welcome to the homepage!</h2> 
-                <p>Need to access the dashboard? <Link to = "/login">Login</Link></p>
+                <p>Looking for the dashboard? <Link to = "/login">Login</Link></p>
             </div>
         </div>
         </div>
