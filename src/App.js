@@ -7,10 +7,7 @@ import { Link, Route, Switch } from "react-router-dom";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
-
 import AddList from "./components/AddList";
-
-
 
 function App() {
   const token = localStorage.getItem("token");
@@ -36,16 +33,24 @@ function App() {
 {token ? 
     
     (<Switch>
+
+      <Route path='/dashboard' component={Dashboard}/>
+      <Route path='/addlist' component={AddList}/>
+
       
+<<<<<<< HEAD
+
+=======
       <Route path='/dashboard' component={Dashboard}/>
       <Route path='/addlist' component={AddList}/>
       
     
         
+>>>>>>> 23438b20bbd5b9ae7924eb6dc8eed060828375e7
         </Switch>) : 
         (
       <Switch>
-      
+
       <Login exact path = "/login" component={Login}/>
       
       <Route exact path = "/register">

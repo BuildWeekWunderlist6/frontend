@@ -5,7 +5,6 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {getData} from "./redux/actions/index";
 
-
 //REDUX
 import {todoReducer as reducer} from "./redux/reducers/todoReducer"; 
 import {Provider} from "react-redux";

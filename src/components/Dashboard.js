@@ -8,6 +8,10 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { useForm } from "react-hook-form";
 import GetStatus from "./GetStatus";
+import Button from "@material-ui/core/Button";
+import TextField from '@material-ui/core/TextField';
+import Checkbox from '@material-ui/core/Checkbox';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const Dashboard = (props) => {
     const [data, setData] = useState([]);
@@ -65,8 +69,8 @@ console.log("This is a user", props.user);
         </div>
         <div className = "newcardform">
             <form onListSubmit = {handleSubmit(onListSubmit)} className = "newcard">
-                <input name = "listname" placeholder = "Add new list" ref = {register({required : true})} />
-                <input type = "submit" />
+                <TextField id = "listname" type = "text" placeholder = "Add new list" ref = {register({required : true})} />
+                <Button size = "small" type = "submit" variant = "contained" color = "primary">Add</Button>
             </form>
         </div>
         <animated.div style = {SpringProps()}>
@@ -80,39 +84,29 @@ console.log("This is a user", props.user);
             const id = data.id;
             return (
             <div key={data.id} className = "card">
-            <button onClick={() => {deleteItem(id)}}className = "delete" type = "button">Delete</button>
+            <DeleteIcon color="secondary" fontSize = "large" onClick={() => {deleteItem(id)}}className = "delete" type = "contained"></DeleteIcon>
             <h2>{data.name}</h2>
-            
-            <input type="text"
-            name="name"
-            onChange={handleChanges}
-             />
+            <div className = "update"> 
+             <TextField name = "name" placeholder = "New name" onInput = {handleChanges}></TextField>
 
-            <button onClick={() => {updateTitle(newTitleText, id)}}>Update</button>
+            <Button size = "small" variant = "contained" color = "primary" onClick={() => {updateTitle(newTitleText, id)}}>Update</Button>
+            </div>
+            <div className = "add"> 
+                <TextField name = "taskname" placeholder = "Add new task"></TextField>
+                <Button size = "small" type = "submit" variant = "contained" color = "primary">Add</Button>
+                </div>
 
-            <div className = "list">
-            <form onTaskSubmit = {handleSubmit(onTaskSubmit)} className = "newtask">
-                <input name = "taskname" placeholder = "Add new task" ref = {register({required : true})} />
-                <input type = "submit" />
-            </form>
+                <div className = "list">
             <label>First Task
-            <input name = "isCompleted" type = "checkbox" />
+            <Checkbox color = "primary" value = "isCompleted"></Checkbox>
             <br/>
             </label>
             <label>Second Task
-            <input name = "isCompleted" type = "checkbox" />
+            <Checkbox color = "primary" value = "isCompleted" />
             <br/>
             </label>
             <label>Third Task
-            <input name = "isCompleted" type = "checkbox" />
-            <br/>
-            </label>
-            <label>Fourth Task
-            <input name = "isCompleted" type = "checkbox" />
-            <br/>
-            </label>
-            <label>Fifth Task
-            <input name = "isCompleted" type = "checkbox" />
+            <Checkbox color = "primary" value = "isCompleted" />
             <br/>
             </label>
             </div>
