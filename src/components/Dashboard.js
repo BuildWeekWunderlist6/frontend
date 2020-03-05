@@ -15,6 +15,7 @@ import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteIcon from '@material-ui/icons/Delete';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import moment from 'moment'
 
 const Dashboard = (props) => {
     
@@ -90,7 +91,7 @@ const Dashboard = (props) => {
             <DeleteIcon color="secondary" fontSize = "large" onClick={() => {deleteItem(id)}}className = "delete" type = "contained"></DeleteIcon>
             <CheckCircleIcon color="primary" fontSize = "large" onClick={() => {deleteItem(id)}}className = "complete" type = "contained"></CheckCircleIcon>
             <h2>{data.name}</h2>
-            <h4>{data.created_at}</h4>
+            <h4>{moment(data.created_at).format('MMMM Do YYYY, h:mm a')}</h4>
             <div className = "update"> 
              <TextField name = "name" placeholder = "New name" onInput = {handleChanges}></TextField>
 
