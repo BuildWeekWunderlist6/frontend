@@ -60,7 +60,7 @@ const Dashboard = (props) => {
     <div className = "dashboard">
         <animated.div style = {SpringProps()}>
         <div className = "status">
-        {/* <GetStatus loaded = {loadStatus} username = {userName} /> */}
+    
         </div>
         </animated.div>
     <div className = "dashboardtitle">
@@ -68,8 +68,7 @@ const Dashboard = (props) => {
         </div>
         <div className = "newcardform">
             <form onListSubmit = {handleSubmit(onListSubmit)} className = "newcard">
-                {/* <TextField id = "listname" type = "text" placeholder = "Add new list" ref = {register({required : true})} /> */}
-                {/* <Button size = "small" type = "submit" variant = "contained" color = "primary">Add</Button> */}
+            
             </form>
         </div>
         <animated.div style = {SpringProps()}>
@@ -78,11 +77,7 @@ const Dashboard = (props) => {
 
 
         {props.lists.map(data => {
-           
-           
-            props.getTodos();
-       
-            const id = data.id;
+           const id = data.id;
             return (
             <div key={data.id} className = "card">
             <DeleteIcon color="secondary" fontSize = "large" onClick={() => {deleteItem(id)}}className = "delete" type = "contained"></DeleteIcon>
@@ -92,27 +87,9 @@ const Dashboard = (props) => {
 
             <Button size = "small" variant = "contained" color = "primary" onClick={() => {updateTitle(newTitleText, id)}}>Update</Button>
             </div>
-            {/* <div className = "add"> 
-                <TextField name = "taskname" placeholder = "Add new task"></TextField>
-                <Button size = "small" type = "submit" variant = "contained" color = "primary">Add</Button>
-                </div> */}
-
-                <Todos id={data.id}/>
-
-                {/* <div className = "list">
-            <label>First Task
-            <Checkbox color = "primary" value = "isCompleted"></Checkbox>
-            <br/>
-            </label>
-            <label>Second Task
-            <Checkbox color = "primary" value = "isCompleted" />
-            <br/>
-            </label>
-            <label>Third Task
-            <Checkbox color = "primary" value = "isCompleted" />
-            <br/>
-            </label>
-            </div> */}
+           
+            <p>{data.created_at}</p>
+                <Todos id={id}/>
             </div>
 
             )
