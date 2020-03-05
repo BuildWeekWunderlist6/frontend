@@ -7,10 +7,14 @@ import * as Yup from "yup";
 import { Link, Route, Switch } from "react-router-dom";
 import { animated } from "react-spring";
 import SpringProps from "./Animations";
+import loginUser from "../redux/login/login.action";
+import {connect} from "react-redux";
 
 
 
-const Login = ({values, handleChange, touched, errors, status}) => {
+
+
+const Login = ({values, handleChange, touched, errors, status}, props) => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
@@ -53,22 +57,27 @@ const FormikLogin = withFormik({
     }),
    
     handleSubmit(values, { setStatus, resetForm, props}) {
-        console.log("Submitting", values);
-        console.log("this is props", props)
         
-        axiosWithAuth().post("/users/login", values)
-            .then(response => {
-                window.localStorage.setItem('token', response.data.token);
-                console.log("VALUES", values);
-                console.log("Success", response.data);
-                setStatus(response.data);
-                props.history.push('/dashboard');
-                resetForm();
-            })
-            .catch(response => {
-                console.log("Error posting data", response);
-            });
+        props.loginUser(values, props.history);
+        // console.log("Submitting", values);
+        // console.log("this is props", props)
+        
+        // axiosWithAuth().post("/users/login", values)
+        //     .then(response => {
+        //         window.localStorage.setItem('token', response.data.token);
+        //         console.log("VALUES", values);
+        //         console.log("Success", response.data);
+        //         setStatus(response.data);
+        //         props.history.push('/dashboard');
+        //         resetForm();
+        //     })
+        //     .catch(response => {
+        //         console.log("Error posting data", response);
+        //     });
     }
 })(Login);
 
-export default FormikLogin;
+const mapDispatchToProps = {loginUser}
+
+
+export default connect(null , mapDispatchToProps)(FormikLogin);

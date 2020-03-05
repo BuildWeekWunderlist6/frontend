@@ -3,7 +3,7 @@ import './App.css';
 import PrivateRoute from "./components/PrivateRoute";
 import Dashboard from "./components/Dashboard"
 import { BrowserRouter as Router } from "react-router-dom";
-import { Link, NavLink, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
@@ -11,7 +11,7 @@ import AddList from "./components/AddList";
 
 function App() {
   const token = localStorage.getItem("token");
-  
+
   return (
     
     <Router>
@@ -19,10 +19,10 @@ function App() {
       <header className="App-header">
       <nav className = "navigation">
         <div className = "navlinks">
-      {token ? <> <NavLink activeClassName = "active" to="/dashboard">Dashboard</NavLink><NavLink activeClassName = "active" to="/addlist">Add List</NavLink></> : <>
-            <NavLink exact={true} activeClassName = "active" to = "/">Home</NavLink>
-            <NavLink activeClassName = "active" to = "/login">Login</NavLink>
-            <NavLink activeClassName = "active" to = "/register">Register</NavLink>  </>
+      {token ? <><Link to="/dashboard">Dashboard</Link><Link to="/addlist">Add List</Link></> : <>
+            <Link to = "/">Home</Link>
+            <Link to = "/login">Login</Link>
+            <Link to = "/register">Register</Link>  </>
             }
             </div>
         </nav>
@@ -38,7 +38,15 @@ function App() {
       <Route path='/addlist' component={AddList}/>
 
       
+<<<<<<< HEAD
 
+=======
+      <Route path='/dashboard' component={Dashboard}/>
+      <Route path='/addlist' component={AddList}/>
+      
+    
+        
+>>>>>>> 23438b20bbd5b9ae7924eb6dc8eed060828375e7
         </Switch>) : 
         (
       <Switch>

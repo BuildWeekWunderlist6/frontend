@@ -8,6 +8,9 @@ import { Link, Route, Switch } from "react-router-dom";
 import { animated } from "react-spring";
 import SpringProps from "./Animations";
 
+import {connect} from "react-redux";
+import registerUser from "../redux/register/register.action";
+
 
 const Register = ({values, handleChange, touched, errors, status}) => {
     const [users, setUsers] = useState([]);
@@ -60,22 +63,30 @@ const FormikRegister = withFormik({
     }),
     
     handleSubmit(values, { setStatus, resetForm, props }) {
-        console.log("Submitting", values);
+        props.registerUser(values, props.history)
+        
+        
+        
+        
+        // console.log("Submitting", values);
        
-        axiosWithAuth().post("/users/register", values)
-            .then(response => {
-                window.localStorage.setItem('token', response.data.token);
-                console.log("payload", response.data.token)
-                console.log("VALUES", values);
-                console.log("Success", response.data);
-                setStatus(response.data);
-                // props.history.push('/dashboard');
-                resetForm();
-            })
-            .catch(err => {
-                console.log("Error posting data", err);
-            });
+        // axiosWithAuth().post("/users/register", values)
+        //     .then(response => {
+        //         window.localStorage.setItem('token', response.data.token);
+        //         console.log("payload", response.data.token)
+        //         console.log("VALUES", values);
+        //         console.log("Success", response.data);
+        //         setStatus(response.data);
+        //         // props.history.push('/dashboard');
+        //         resetForm();
+        //     })
+        //     .catch(err => {
+        //         console.log("Error posting data", err);
+        //     });
     }
 })(Register);
 
-export default FormikRegister;
+
+const mapDispatchToProps = {registerUser}
+
+export default connect(null, mapDispatchToProps)(FormikRegister);
