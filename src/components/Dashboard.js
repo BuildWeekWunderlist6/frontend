@@ -11,6 +11,7 @@ import GetStatus from "./GetStatus";
 import Button from "@material-ui/core/Button";
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const Dashboard = (props) => {
     const [data, setData] = useState([]);
@@ -84,7 +85,7 @@ const Dashboard = (props) => {
             const id = data.id;
             return (
             <div key={data.id} className = "card">
-            <Button size = "small" color = "secondary" variant = "outlined" onClick={() => {deleteItem(id)}}className = "delete" type = "contained">Delete</Button>
+            <DeleteIcon color="secondary" fontSize = "large" onClick={() => {deleteItem(id)}}className = "delete" type = "contained"></DeleteIcon>
             <h2>{data.name}</h2>
             <div className = "update"> 
              <TextField name = "name" placeholder = "New name" onInput = {handleChanges}></TextField>
@@ -98,15 +99,15 @@ const Dashboard = (props) => {
 
                 <div className = "list">
             <label>First Task
-            <Checkbox value = "isCompleted"></Checkbox>
+            <Checkbox color = "primary" value = "isCompleted"></Checkbox>
             <br/>
             </label>
             <label>Second Task
-            <Checkbox value = "isCompleted" />
+            <Checkbox color = "primary" value = "isCompleted" />
             <br/>
             </label>
             <label>Third Task
-            <Checkbox value = "isCompleted" />
+            <Checkbox color = "primary" value = "isCompleted" />
             <br/>
             </label>
             </div>
