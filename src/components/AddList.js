@@ -3,11 +3,7 @@ import { connect } from 'react-redux';
 import { addList } from '../redux/actions/index';
 
 const AddList = (props) => {
- const [list, setList] = useState({
-    
-name: "",
-
-     });
+ const [list, setList] = useState({name: "",});
 
    
     const add = e => {

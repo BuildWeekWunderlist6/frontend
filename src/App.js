@@ -38,8 +38,8 @@ function App() {
       <Route path='/addlist' component={AddList}/>
 
 
-      <Route path='/dashboard' component={Dashboard}/>
-      <Route path='/addlist' component={AddList}/>
+      <PrivateRoute path='/dashboard' component={Dashboard}/>
+      <PrivateRoute path='/addlist' component={AddList}/>
       
     
         
