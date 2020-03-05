@@ -37,16 +37,13 @@ function App() {
       <Route path='/dashboard' component={Dashboard}/>
       <Route path='/addlist' component={AddList}/>
 
-      
-<<<<<<< HEAD
 
-=======
       <Route path='/dashboard' component={Dashboard}/>
       <Route path='/addlist' component={AddList}/>
       
     
         
->>>>>>> 23438b20bbd5b9ae7924eb6dc8eed060828375e7
+
         </Switch>) : 
         (
       <Switch>
