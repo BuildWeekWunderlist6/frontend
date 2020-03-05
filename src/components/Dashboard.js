@@ -14,6 +14,7 @@ import Button from "@material-ui/core/Button";
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteIcon from '@material-ui/icons/Delete';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 const Dashboard = (props) => {
     
@@ -86,6 +87,7 @@ const Dashboard = (props) => {
             return (
             <div key={data.id} className = "card">
             <DeleteIcon color="secondary" fontSize = "large" onClick={() => {deleteItem(id)}}className = "delete" type = "contained"></DeleteIcon>
+            <CheckCircleIcon color="primary" fontSize = "large" onClick={() => {deleteItem(id)}}className = "complete" type = "contained"></CheckCircleIcon>
             <h2>{data.name}</h2>
             <h4>{data.created_at}</h4>
             <div className = "update"> 
