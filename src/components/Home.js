@@ -9,7 +9,7 @@ export default function Home() {
         <div className = "maincard">
         <div className = "homepage">
             <div className = "hometext">
-                <h2>Welcome to the homepage!</h2> 
+                <h2>Welcome to Wunderlist 2.0!</h2> 
                 <p>Looking for the dashboard? <Link to = "/login">Login</Link></p>
             </div>
         </div>
