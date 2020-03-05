@@ -12,6 +12,7 @@ import Button from "@material-ui/core/Button";
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteIcon from '@material-ui/icons/Delete';
+import ParticleComponent from "./ParticleComponent";
 
 const Dashboard = (props) => {
     const [data, setData] = useState([]);
@@ -60,6 +61,7 @@ const Dashboard = (props) => {
 
     return (
     <div className = "dashboard">
+        <ParticleComponent />
         <animated.div style = {SpringProps()}>
         <div className = "status">
         <GetStatus loaded = {loadStatus} username = {userName} />
