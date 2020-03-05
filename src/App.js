@@ -33,8 +33,10 @@ function App() {
 {token ? 
     
     (<Switch>
+
       <Route path='/dashboard' component={Dashboard}/>
       <Route path='/addlist' component={AddList}/>
+      
         
         </Switch>) : 
         (
