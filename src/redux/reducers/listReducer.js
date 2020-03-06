@@ -42,8 +42,8 @@ const listReducer = (state=initialState, action) => {
            
             return{
                 ...state,
-                lists: action.payload.lists,
-                // lists: action.payload,
+                lists: [action.payload],
+               
                 isFetching: false
               
                 
@@ -55,7 +55,8 @@ const listReducer = (state=initialState, action) => {
             }
         case DELETE_LIST_SUCCESS:
             return{
-                ...state,
+               
+                lists: [action.payload]
 
             }
         
