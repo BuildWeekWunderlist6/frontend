@@ -8,7 +8,7 @@ export const FETCH_DATA_START = "FETCH_DATA_START";
 export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
 export const SET_USER = "SET_USER";
 export const DELETE_LIST_START = "DELETE_LIST";
-export const DELETE_LIST_SUCCESS = "DELETE_SUCCESS"
+export const DELETE_LIST_SUCCESS = "DELETE_LIST_SUCCESS"
 export const CREATE_TODO_START = "CREATE_TODO_START";
 export const CREATE_TODO_SUCCESS = "CREATE_TODO_SUCCESS";
 export const GET_TODO_SUCCESS = "GET_TODO_SUCCESS";
@@ -52,6 +52,7 @@ export const addList = (list, props) => dispatch => {
     axiosWithAuth()
         .post(`https://ls-wunderlist--production.herokuapp.com/api/todo-lists`, list)
         .then(res => {
+           
             console.log(res);
             props.history.push('/dashboard')
         })
@@ -69,7 +70,7 @@ export const updateList = (payload, id) => dispatch => {
     .put(`https://ls-wunderlist--production.herokuapp.com/api/todo-lists/${newId}`, payload)
     .then(res => {
         
-        dispatch ({ type: UPDATE_LIST_SUCCESS, type: FETCH_DATA_START, payload: res.data })
+        dispatch ({ type: UPDATE_LIST_SUCCESS, payload: res.data })
         
         console.log("response from update list", res.data);
     })
@@ -82,12 +83,12 @@ export const updateList = (payload, id) => dispatch => {
 export const deleteList = (id) => dispatch => {
     dispatch({type: DELETE_LIST_START})
     
-    console.log(id);
+    console.log("this is a dynamic id inside the action creator", id);
 axiosWithAuth()
     .delete(`https://ls-wunderlist--production.herokuapp.com/api/todo-lists/${id}`)
     .then(res => {
-        console.log(res);
-        dispatch({type:FETCH_DATA_START, type: DELETE_LIST_SUCCESS, payload: res.data})
+        console.log("this is the response from the server",res.data);
+        dispatch({type: DELETE_LIST_SUCCESS, payload: res.data})
     })
     .catch(err => console.log(err));
 }
@@ -126,7 +127,7 @@ dispatch({type: DELETE_TODO_START})
 axiosWithAuth()
 .delete(`https://ls-wunderlist--production.herokuapp.com/api/todo-items/${id}`)
 .then(res => {
-    dispatch({type: DELETE_TODO_SUCCESS, payload: res.data})
+    dispatch({type: DELETE_TODO_SUCCESS, payload: [res]})
 })
 
 
