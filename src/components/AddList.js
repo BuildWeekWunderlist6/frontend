@@ -8,7 +8,7 @@ const AddList = (props) => {
    
     const add = e => {
     e.preventDefault();
-    props.addList(list);
+    props.addList(list, props);
     setList({
         name: "",
     })
