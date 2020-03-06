@@ -45,7 +45,6 @@ const listReducer = (state=initialState, action) => {
             return{
                 ...state,
             }
-
         case DELETE_TODO_SUCCESS:
             return{
                 ...state,
