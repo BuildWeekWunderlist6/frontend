@@ -6,11 +6,12 @@ import { createGenerateClassName } from "@material-ui/core";
 
 const Todos = (props) => {
 const id = props.id;
-console.log("This is a new ID", props.newId)
- useEffect(() => {
+
+ const getData = (id) => {
        props.getTodos(id);
-       
-    }, []);
+       console.log("this is an id" ,id)
+    }   
+   
 
 console.log("this is whats on props", props)
 
@@ -34,7 +35,7 @@ console.log("this is whats on props", props)
 console.log("this is todos from state", props.todo);
 return(
     <>
-    <button onClick={()=> props.getTodos(id)}>Get Todos</button>
+    <button onClick={()=> {getData(id)}}>Get Todos</button>
 <div>
 {props.todo.map(todos => {
     const newId = todos.id;

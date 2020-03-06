@@ -60,7 +60,9 @@ const Dashboard = (props) => {
     <div className = "dashboard">
         <animated.div style = {SpringProps()}>
         <div className = "status">
-    
+    <h1>Hello, {props.firstname}</h1>
+    <p>You're signed in from {props.email}</p>
+    <p></p>
         </div>
         </animated.div>
     <div className = "dashboardtitle">
@@ -118,6 +120,9 @@ const mapStateToProps = state => {
     //    isFetching: state.isFetching,
        user: state.list.user,
        token: state.login.token,
+       firstname: state.register.user.first_name,
+       email: state.register.user.email
+
       
         }
 };
